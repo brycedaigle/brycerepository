@@ -8,6 +8,8 @@ $DiskInfo = Get-Disk
 $DiskInfo.count 
 
 $obj = [PSCustomObject]@{
+    ComputerName = $ComputerInfo.CsDNSHostName
+    OsVersion = $ComputerInfo.OsVersion
     LogicalDiskCount = $DiskInfo.count
 }
 Write-Output $obj
