@@ -7,10 +7,14 @@ $DiskInfo = Get-Disk
 
 $FreeSpace = Get-PSDrive | Where-Object {$_.Name -eq 'C'}
 
+#Get number of cores
+$CPUCore = Get-CimInstance CIM_Processor
+
 $obj = [PSCustomObject]@{
     ComputerName = $ComputerInfo.CsDNSHostName
     OsVersion = $ComputerInfo.OsVersion
     LogicalDiskCount = $DiskInfo.count
-    FreeSpace = $FreeSpace.Free 
+    FreeSpace_GB = $FreeSpace.Free  / 1gb
+    CPUCore = $CPUCore.NumberOfCores
 }
 Write-Output $obj
