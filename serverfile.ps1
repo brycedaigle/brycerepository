@@ -25,5 +25,6 @@ $obj = [PSCustomObject]@{
     LogicalDiskCount = $DiskInfo.count
     FreeSpace_GB = $FreeSpace.Free  / 1gb
     CPUCore = $CPUCore.NumberOfCores
+    TotalMemory = $MemorySum / 1gb
 }
 Write-Output $obj
