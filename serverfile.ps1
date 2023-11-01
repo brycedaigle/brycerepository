@@ -5,7 +5,7 @@ $ComputerInfo = Get-ComputerInfo
 # get disk info
 $DiskInfo = Get-Disk
 
-$FreeSpace = Get-PSDrive | WhereObject {$_.Name -eq 'C'}
+$FreeSpace = Get-PSDrive | Where-Object {$_.Name -eq 'C'}
 
 $obj = [PSCustomObject]@{
     ComputerName = $ComputerInfo.CsDNSHostName
