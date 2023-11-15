@@ -28,6 +28,6 @@ $obj = [PSCustomObject]@{
     FreeSpace_GB = $FreeSpace.Free  / 1gb
     CPUCore = $CPUCore.NumberOfCores
     TotalMemory = $MemorySum / 1gb
-    CPUsage = $$CPUsage.
+    CPUsage = $CPUsage.CPUPercentage
 }
 Write-Output $obj
