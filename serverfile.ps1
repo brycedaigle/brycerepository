@@ -18,6 +18,8 @@ foreach ($item in $Memory) {
 }
 Write-Output $MemorySum
 
+# get cpu usage
+$CPUsage = Get-WmiObject Win32_Processor | Select-LoadPercentage
 
 $obj = [PSCustomObject]@{
     ComputerName = $ComputerInfo.CsDNSHostName
@@ -26,5 +28,6 @@ $obj = [PSCustomObject]@{
     FreeSpace_GB = $FreeSpace.Free  / 1gb
     CPUCore = $CPUCore.NumberOfCores
     TotalMemory = $MemorySum / 1gb
+    CPUsage = $$CPUsage.
 }
 Write-Output $obj
